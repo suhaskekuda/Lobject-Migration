@@ -17,3 +17,12 @@ bin\setup.sh setup
 "WorkerPool": Node Worker Threads.
 
 The database node is where you'll make changes to the source and destination connection strings.
+
+## Run application
+
+Run application with below command 
+
+```
+python3.9 app.py
+```
+
