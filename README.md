@@ -12,8 +12,8 @@ bin\setup.sh setup
 
 ## Based on your project requirement change in config/app.setting.json file
 
-"MinPoolSize": Min connection pool  
-"PoolSize": Max connection pool
-"WorkerPool": Node Worker Threads
+"MinPoolSize": Min connection pool.  
+"PoolSize": Max connection pool.  
+"WorkerPool": Node Worker Threads.
 
 The database node is where you'll make changes to the source and destination connection strings.
