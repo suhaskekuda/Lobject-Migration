@@ -5,8 +5,6 @@ from psycopg2.pool import ThreadedConnectionPool
 import os
 import sys
 import shutil
-
-
 from proto import *
 
 
