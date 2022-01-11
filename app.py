@@ -48,6 +48,7 @@ _selectcnt = 0
 def exec_query(query, respObj, jobId, responseType):
 
     result = ""
+    sourceConn = ""
     resps = False
     currentThreadId = current_thread().getName()
 
@@ -97,6 +98,8 @@ def migrationOID(currentOid):
     global _selectcnt
     global _insertcnt
     status = {}
+    sourceConn = ""
+    destinationConn = ""
 
     currentThreadId = current_thread().getName()
 
@@ -172,8 +175,6 @@ if __name__ == "__main__":
             log.error("Could not fetch LOB")
             log.error("{}".format(Error))
             tableWithLOB = []
-            if sourceConn:
-                _readConnectionPool.putconn(sourceConn)
         finally:
             del schemaQuery
             if sourceConn:
