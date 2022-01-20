@@ -206,7 +206,7 @@ if __name__ == "__main__":
         
         for jobId, query in lobinfo.items(): 
             if jobId in configuration["App"]["SkipTable"]:
-                    continue
+                continue
             future = threadingExecPool.submit(exec_query, query, columninfo, jobId, "LISTNUM")
         
         threadingExecPool.shutdown(True)
