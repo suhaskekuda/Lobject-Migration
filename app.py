@@ -205,6 +205,8 @@ if __name__ == "__main__":
         threadingExecPool = ThreadPoolExecutor(max_workers=_workerPool)
         
         for jobId, query in lobinfo.items(): 
+            if jobId in configuration["App"]["SkipTable"]:
+                    continue
             future = threadingExecPool.submit(exec_query, query, columninfo, jobId, "LISTNUM")
         
         threadingExecPool.shutdown(True)
@@ -213,12 +215,12 @@ if __name__ == "__main__":
         writeJson(configuration["App"]["PreviousExecFlags"], columninfo)
         del threadingExecPool
 
-    else:
-        log.info("Previous execution did not complete. Resuming")
-        columninfo = readJson(configuration["App"]["PreviousExecFlags"])
         if exists("tmp/complted"):
             shutil.rmtree("tmp/complted")
 
+    else:
+        log.info("Previous execution did not complete. Resuming")
+        columninfo = readJson(configuration["App"]["PreviousExecFlags"])
 
     ### Fetch Data ###
     alllist = sum(columninfo.values(), [])
